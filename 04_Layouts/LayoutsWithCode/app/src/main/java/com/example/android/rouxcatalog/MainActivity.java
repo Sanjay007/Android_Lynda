@@ -1,9 +1,12 @@
 package com.example.android.rouxcatalog;
 
+import android.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 
@@ -14,6 +17,19 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        LinearLayout layout = (LinearLayout) findViewById(R.id.myLayout);
+
+        ViewGroup.LayoutParams params = new ViewGroup.LayoutParams(
+                ActionBar.LayoutParams.WRAP_CONTENT,
+                ActionBar.LayoutParams.WRAP_CONTENT
+        );
+
+        for (int i = 0; i < 3; i++) {
+            Button button = new Button(this);
+            button.setText(R.string.click_me);
+            button.setLayoutParams(params);
+            layout.addView(button);
+        }
     }
 
 
