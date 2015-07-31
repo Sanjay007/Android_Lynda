@@ -39,4 +39,11 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void btnOnclickHandler(View view) {
+        String imageName = "image_10102";
+        int res = getResources().getIdentifier(imageName, "drawable", getPackageName());
+        ImageView iv = (ImageView) findViewById(R.id.imageCourse);
+
+        iv.setImageResource(res);
+    }
 }
