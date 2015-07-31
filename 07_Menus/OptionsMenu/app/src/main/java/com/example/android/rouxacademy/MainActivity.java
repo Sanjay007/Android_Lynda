@@ -45,8 +45,8 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void btnOnclickHandler(View view) {
 
+    public void actionResourceClickHandler(MenuItem item) {
         String imageName = "image_10102";
         int res = getResources().getIdentifier(imageName, "drawable", getPackageName());
         ImageView iv = (ImageView) findViewById(R.id.imageCourse);
@@ -54,7 +54,8 @@ public class MainActivity extends ActionBarActivity {
 
     }
 
-    public void btn2ClickHandler(View view) {
+    public void actionAssetClickHandler(MenuItem item) {
+
         String imageName = "image_50101.jpg";
         ImageView iv = (ImageView) findViewById(R.id.imageCourse);
 
