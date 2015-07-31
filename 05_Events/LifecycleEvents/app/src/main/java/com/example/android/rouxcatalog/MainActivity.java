@@ -9,20 +9,49 @@ import android.view.MenuItem;
 
 public class MainActivity extends ActionBarActivity {
 
+    public static final String LOG_TAG = "MainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Log.d("MainActivity", "onCreate");
+        Log.d(LOG_TAG, "onCreate");
 
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.d(LOG_TAG, "onStart");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        Log.d(LOG_TAG, "onStop");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Log.d(LOG_TAG, "onResume");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        Log.d(LOG_TAG, "onPause");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        Log.d("MainActivity", "onCreateOptionsMenu");
+        Log.d(LOG_TAG, "onCreateOptionsMenu");
 
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -32,7 +61,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
-        Log.d("MainActivity", "onOptionsItemSelected");
+        Log.d(LOG_TAG, "onOptionsItemSelected");
 
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long

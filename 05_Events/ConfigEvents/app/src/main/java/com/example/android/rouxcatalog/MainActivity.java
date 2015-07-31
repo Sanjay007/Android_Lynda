@@ -1,5 +1,6 @@
 package com.example.android.rouxcatalog;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -18,6 +19,17 @@ public class MainActivity extends ActionBarActivity {
 
         Log.d(LOG_TAG, "onCreate");
 
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+        if(newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            Log.d(LOG_TAG, "Changed to portrait");
+        } else {
+            Log.d(LOG_TAG, "Changed to landscape");
+        }
     }
 
     @Override
