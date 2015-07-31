@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.IOException;
 import java.io.InputStream;
 
 
@@ -55,6 +56,16 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void btn2ClickHandler(View view) {
+        String imageName = "image_50102.png";
+        ImageView iv = (ImageView) findViewById(R.id.imageCourse);
+
+        try {
+            InputStream stream = getAssets().open(imageName);
+            Drawable drawable = Drawable.createFromStream(stream, null);
+            iv.setImageDrawable(drawable);
+        } catch (Exception e) {
+            Log.e(LOG_TAG, e.getMessage());
+        }
 
     }
 }
