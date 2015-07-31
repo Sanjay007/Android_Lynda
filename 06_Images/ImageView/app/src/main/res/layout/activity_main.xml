@@ -12,7 +12,7 @@
         android:id="@+id/tvTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imageIcon"
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="@string/course_name"
@@ -37,5 +37,14 @@
             android:textSize="20sp" />
 
     </ScrollView>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/imageIcon"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/ra_icon" />
 
 </RelativeLayout>
