@@ -30,6 +30,7 @@ public class MainActivity extends ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
 
         MenuItem item = menu.add(Menu.NONE, Menu.NONE, 103, "New item");
+        item.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
         item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {

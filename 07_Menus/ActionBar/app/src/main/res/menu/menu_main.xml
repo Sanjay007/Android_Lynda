@@ -6,15 +6,17 @@
         android:id="@+id/action_settings"
         android:orderInCategory="100"
         android:title="@string/action_settings"
-        app:showAsAction="never" />
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_display_resource"
         android:orderInCategory="101"
         android:title="@string/image_resource"
-        android:onClick="actionResourceClickHandler"/>
+        android:onClick="actionResourceClickHandler"
+        app:showAsAction="ifRoom" />
     <item
         android:id="@+id/action_display_asset"
         android:orderInCategory="102"
         android:title="@string/image_asset"
-        android:onClick="actionAssetClickHandler"/>
+        android:onClick="actionAssetClickHandler"
+        app:showAsAction="ifRoom" />
 </menu>
