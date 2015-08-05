@@ -7,4 +7,7 @@
     <string name="course_name">Course Name</string>
     <string name="change_image">Change Image</string>
     <string name="register">Register</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="hello_world">Hello world!</string>
 </resources>
