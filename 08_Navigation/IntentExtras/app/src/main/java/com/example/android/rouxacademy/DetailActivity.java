@@ -1,9 +1,10 @@
 package com.example.android.rouxacademy;
 
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 
 public class DetailActivity extends ActionBarActivity {
@@ -12,6 +13,10 @@ public class DetailActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+
+        String title = getIntent().getStringExtra(MainActivity.COURSE_TITLE);
+        TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
+        tvTitle.setText(title);
     }
 
 

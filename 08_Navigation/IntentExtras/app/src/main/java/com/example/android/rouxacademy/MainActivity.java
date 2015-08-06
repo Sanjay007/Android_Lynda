@@ -10,6 +10,8 @@ import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
 
+    public static final String COURSE_TITLE = "courseTitle";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +44,9 @@ public class MainActivity extends ActionBarActivity {
     public void btnClickHandler(View view) {
 
         Intent detailIntent = new Intent(this, DetailActivity.class);
+
+        Course course = new Course();
+        detailIntent.putExtra(COURSE_TITLE, course.getTitle());
         startActivity(detailIntent);
     }
 }
