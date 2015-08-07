@@ -1,6 +1,7 @@
 package com.example.android.rouxacademy;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -63,6 +64,13 @@ public class MainActivity extends ActionBarActivity {
                 Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
             }
         }
+
+    }
+
+    public void websiteClickHandler(View view) {
+        Uri webPage = Uri.parse("http://rouxacademy.com/");
+        Intent webIntent = new Intent(Intent.ACTION_VIEW,  webPage);
+        startActivity(webIntent);
 
     }
 }
