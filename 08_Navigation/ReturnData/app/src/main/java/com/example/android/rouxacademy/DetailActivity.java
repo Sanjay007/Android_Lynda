@@ -4,19 +4,22 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 
 public class DetailActivity extends ActionBarActivity {
+
+    protected String courseTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
 
-        String title = getIntent().getStringExtra(MainActivity.COURSE_TITLE);
+        courseTitle = getIntent().getStringExtra(MainActivity.COURSE_TITLE);
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
-        tvTitle.setText(title);
+        tvTitle.setText(courseTitle);
     }
 
 
@@ -42,4 +45,9 @@ public class DetailActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void registerClickHandler(View view) {
+        getIntent().putExtra("resultMessage", "You're registered for " + courseTitle);
+        setResult(RESULT_OK, getIntent());
+        finish();
+    }
 }

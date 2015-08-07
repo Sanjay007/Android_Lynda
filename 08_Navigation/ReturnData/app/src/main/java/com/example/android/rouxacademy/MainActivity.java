@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 
 public class MainActivity extends ActionBarActivity {
 
     public static final String COURSE_TITLE = "courseTitle";
+    public static final int REQUEST_CODE = 1001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,16 @@ public class MainActivity extends ActionBarActivity {
 
         detailIntent.putExtra(COURSE_TITLE, course.getTitle());
 
-        startActivity(detailIntent);
+        startActivityForResult(detailIntent, REQUEST_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == RESULT_OK) {
+                String msg = data.getStringExtra("resultMessage");
+                Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+            }
+        }
     }
 }
