@@ -21,7 +21,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="btnClickHandler"/>
+        android:onClick="btnClickHandler"
+        style="@style/ButtonStyle"/>
 
     <Button
         android:layout_width="wrap_content"
@@ -31,6 +32,7 @@
         android:layout_above="@+id/button2"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="websiteClickHandler"/>
+        android:onClick="websiteClickHandler"
+        style="@style/ButtonStyle"/>
 
 </RelativeLayout>
