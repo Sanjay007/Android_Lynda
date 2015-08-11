@@ -2,13 +2,14 @@ package com.example.android.rouxacademy;
 
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -16,19 +17,32 @@ public class MainActivity extends ActionBarActivity {
 
     public static final String COURSE_TITLE = "courseTitle";
     public static final int DETAIL_REQUEST_CODE = 1001;
+    protected List<Course> data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        List<Course> data = DataProvider.getData();
+        data = DataProvider.getData();
 
         ArrayAdapter<Course> courseArrayAdapter =
                 new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, data);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(courseArrayAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+               Course course = data.get(position);
+                displayDetail(course);
+            }
+        });
+
+    }
+
+    private void displayDetail(Course course) {
+        Log.d("MainActivity", "Displaying course: " + course.getTitle());
     }
 
 
