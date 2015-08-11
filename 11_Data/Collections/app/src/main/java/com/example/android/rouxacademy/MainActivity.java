@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+
+import java.util.Iterator;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -16,6 +20,17 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        List<Course> data = DataProvider.getData();
+        Iterator<Course> iterator = data.iterator();
+        StringBuilder builder = new StringBuilder();
+
+        while (iterator.hasNext()) {
+            Course course = iterator.next();
+            builder.append(course.getTitle()).append("\n");
+        }
+
+        TextView tv = (TextView) findViewById(R.id.tvCourseList);
+        tv.setText(builder.toString());
     }
 
 
