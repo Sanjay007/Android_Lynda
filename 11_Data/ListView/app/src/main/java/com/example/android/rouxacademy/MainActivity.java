@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -21,18 +21,25 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         List<Course> data = DataProvider.getData();
-        Iterator<Course> iterator = data.iterator();
 
-        StringBuilder builder = new StringBuilder();
+        ArrayAdapter<Course> courseArrayAdapter =
+                new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, data);
 
-        while (iterator.hasNext()) {
-            Course course = iterator.next();
-            builder.append(course.getTitle())
-                   .append("\n");
-        }
+        ListView listView = (ListView) findViewById(android.R.id.list);
+        listView.setAdapter(courseArrayAdapter);
 
-        TextView tv = (TextView) findViewById(R.id.tvCourseList);
-        tv.setText(builder.toString());
+//        Iterator<Course> iterator = data.iterator();
+//
+//        StringBuilder builder = new StringBuilder();
+//
+//        while (iterator.hasNext()) {
+//            Course course = iterator.next();
+//            builder.append(course.getTitle())
+//                   .append("\n");
+//        }
+//
+//        TextView tv = (TextView) findViewById(R.id.tvCourseList);
+//        tv.setText(builder.toString());
     }
 
 
