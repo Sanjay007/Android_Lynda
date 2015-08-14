@@ -1,23 +1,22 @@
 package com.example.android.rouxacademy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
-import java.util.Iterator;
 import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
 
     public static final String COURSE_TITLE = "courseTitle";
+    public static final String COURSE_DESC = "courseDESC";
     public static final int DETAIL_REQUEST_CODE = 1001;
     protected List<Course> data;
 
@@ -44,7 +43,11 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void displayDetail(Course course) {
-        Log.d("MainActivity", "Displaying course: " + course.getTitle());
+
+        Intent intent = new Intent(this, DetailActivity.class);
+        intent.putExtra(COURSE_TITLE, course.getTitle());
+        intent.putExtra(COURSE_DESC, course.getDescription());
+        startActivityForResult(intent, DETAIL_REQUEST_CODE);
     }
 
 

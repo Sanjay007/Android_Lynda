@@ -20,6 +20,10 @@ public class DetailActivity extends ActionBarActivity {
         courseTitle = getIntent().getStringExtra(MainActivity.COURSE_TITLE);
         TextView tvTitle = (TextView) findViewById(R.id.tvTitle);
         tvTitle.setText(courseTitle);
+
+        String courseDesc = getIntent().getStringExtra(MainActivity.COURSE_DESC);
+        TextView tvDesc = (TextView) findViewById(R.id.tvDescription);
+        tvDesc.setText(courseDesc);
     }
 
 
