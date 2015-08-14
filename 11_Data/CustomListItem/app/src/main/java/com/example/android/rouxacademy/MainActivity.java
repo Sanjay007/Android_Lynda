@@ -1,18 +1,21 @@
 package com.example.android.rouxacademy;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import java.util.Iterator;
 import java.util.List;
 
 
@@ -31,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
         data = DataProvider.getData();
 
         ArrayAdapter<Course> courseArrayAdapter =
-                new ArrayAdapter<Course>(this, android.R.layout.simple_list_item_1, data);
+                new CourseArrayAdapter(this, 0, data);
         ListView listView = (ListView) findViewById(android.R.id.list);
         listView.setAdapter(courseArrayAdapter);
 
@@ -75,6 +78,39 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    class CourseArrayAdapter extends ArrayAdapter<Course> {
+        Context context;
+        List<Course> objects;
+
+        public CourseArrayAdapter(Context context, int resource, List<Course> objects) {
+            super(context, resource, objects);
+            this.context = context;
+            this.objects = objects;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            Course course = objects.get(position);
+
+            LayoutInflater inflater = (LayoutInflater)
+                    context.getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
+
+            View view = inflater.inflate(R.layout.course_item, null);
+
+            TextView tv = (TextView) view.findViewById(R.id.tvTitle);
+            tv.setText(course.getTitle());
+
+            ImageView iv = (ImageView) view.findViewById(R.id.imageCourse);
+            int res = context.getResources().getIdentifier("image_" + course.getCourseNumber(),
+                    "drawable", context.getPackageName());
+
+            iv.setImageResource(res);
+
+            return view;
+        }
     }
 
 }
